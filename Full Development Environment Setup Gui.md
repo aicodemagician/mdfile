@@ -22,6 +22,10 @@ These extensions provide essential tooling for linting, formatting, productivity
 
 *   **GitLens — Git supercharged** (`eamodio.gitlens`): Massively enhances VS Code's built-in Git capabilities. It provides inline blame annotations, powerful history navigation, and deep repository insights that work perfectly with a `jj`-managed Git repository.
 
+### Documentation & Diagrams
+
+*   **Markdown Mermaid** (`bierner.markdown-mermaid`): Adds Mermaid diagram and flowchart rendering support to VS Code's built-in Markdown preview.
+
 ---
 
 ## 2. Workspace Configuration
