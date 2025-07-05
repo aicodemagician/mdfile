@@ -109,4 +109,17 @@ jj git init
         jj git push --change @ --branch main
         ```
 
+### Updating an Existing Branch/Bookmark
+
+If you have made new commits and want to update your `main` branch to point to them, follow this two-step process:
+
+1.  **Move the bookmark:** Update the `main` bookmark to point to your current commit (`@`).
+    ```bash
+    jj bookmark set main
+    ```
+2.  **Push the bookmark:** Push the updated bookmark to GitHub.
+    ```bash
+    jj git push --bookmark main
+    ```
+
 This setup provides a robust, organized, and highly efficient foundation for modern software development.

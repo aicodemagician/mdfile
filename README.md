@@ -42,20 +42,20 @@ See the Full Development Environment Setup Guide for a comprehensive overview of
 ---
 [asciiart](https://www.asciiart.eu/electronics/robots)
 ```ascii
-       _______
-     _/       \_
-    / |       | \
-   /  |__   __|  \
-  |__/((o| |o))\__|
-  |      | |      |
-  |\     |_|     /|
-  | \           / |
-   \| /  ___  \ |/
-    \ | / _ \ | /
-     \_________/
-      _|_____|_
- ____|_________|____
-/                   \  -- Mark Moir
+                   _______
+                 _/       \_
+                / |       | \
+               /  |__   __|  \
+              |__/((o| |o))\__|
+              |      | |      |
+              |\     |_|     /|
+              | \           / |
+               \| /  ___  \ |/
+                \ | / _ \ | /
+                 \_________/
+                  _|_____|_
+             ____|_________|____
+            /                   \  -- Mark Moir
 
 > "I'm sorry, my responses are limited. You must ask the right questions."
 >
