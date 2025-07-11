@@ -20,6 +20,7 @@ Follow these steps when starting a new project you want to host on GitHub.
     git remote add origin https://github.com/your-username/your-repo.git
     ```
 4.  **Make your first commit:** Add some files, then describe the change.
+
     ```bash
     # Example: create a README
     echo "# My New Project" > README.md
@@ -27,6 +28,7 @@ Follow these steps when starting a new project you want to host on GitHub.
     # Describe the working-copy commit
     jj describe -m "Initial commit"
     ```
+
 5.  **Push to GitHub for the first time:**
     ```bash
     # Push the current commit (@) to the 'main' branch on the remote
@@ -35,7 +37,48 @@ Follow these steps when starting a new project you want to host on GitHub.
 
 ---
 
-## B. The Daily Workflow
+## B. Working with `.gitignore`
+
+Jujutsu automatically respects the `.gitignore` file from the underlying Git repository. This file tells version control which files and directories to ignore, such as build artifacts, log files, or editor-specific settings.
+
+### How it Works
+
+1.  **Create or edit the `.gitignore` file** in your project's root directory.
+
+2.  **Add patterns** for the files you want to ignore. For example:
+
+    ```
+    # VS Code specific files
+    .vscode/
+    *.code-workspace
+
+    # Log files
+    *.log
+    ```
+
+3.  **Commit the `.gitignore` file itself.** For the ignore rules to apply, the `.gitignore` file must be part of your project's history. When you create or change it, `jj` will detect it as a file to be committed.
+
+    ```bash
+    # Check the status, you will see the .gitignore file
+    $ jj status
+    Working copy changes:
+    A .gitignore
+
+    # Describe the change to commit it
+    jj describe -m "feat: Add .gitignore to exclude logs and VS Code files"
+    ```
+
+4.  **New.** Finalize the commit and create a new, empty working-copy commit to start the next task.
+    ```bash
+    jj new
+    ```
+    _You can see your history at any time with `jj log`._
+
+Once committed, any new files matching the patterns in `.gitignore` will be ignored by `jj` and will not appear in `jj status`.
+
+---
+
+## C. The Daily Workflow
 
 The local `jj` workflow is a simple, repeating cycle.
 
@@ -48,11 +91,11 @@ The local `jj` workflow is a simple, repeating cycle.
     ```bash
     jj new
     ```
-    *You can see your history at any time with `jj log`.*
+    _You can see your history at any time with `jj log`._
 
 ---
 
-## C. Syncing with GitHub
+## D. Syncing with GitHub
 
 Instead of pushing branches directly, the `jj` workflow uses bookmarks (which are like lightweight, local-first branches).
 
@@ -62,7 +105,7 @@ Instead of pushing branches directly, the `jj` workflow uses bookmarks (which ar
     jj bookmark set main
     ```
 2.  **Push the bookmark:**
-    ```bash
+    `bash
     jj git push --bookmark main
-    ```
-This command tells `jj` to update the `main` branch on the `origin` remote to match the commit pointed to by your local `main` bookmark. This is the only push command you need for regular updates.
+    `
+    This command tells `jj` to update the `main` branch on the `origin` remote to match the commit pointed to by your local `main` bookmark. This is the only push command you need for regular updates.
