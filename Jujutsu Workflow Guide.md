@@ -100,12 +100,20 @@ The local `jj` workflow is a simple, repeating cycle.
 Instead of pushing branches directly, the `jj` workflow uses bookmarks (which are like lightweight, local-first branches).
 
 1.  **Set or update your bookmark:** To mark your current commit as the one you want to push, update the `main` bookmark.
+
     ```bash
     # This moves the 'main' bookmark to your current commit (@)
     jj bookmark set main
     ```
+
+    > **Note:** If you have rebased or amended commits that were already bookmarked, you may see an error like `Refusing to move bookmark backwards or sideways`. This is a safety feature. If you are sure you want to move the bookmark, use the `--allow-backwards` flag:
+    >
+    > ```bash
+    > jj bookmark set --allow-backwards main
+    > ```
+
 2.  **Push the bookmark:**
     `bash
-    jj git push --bookmark main
-    `
+jj git push --bookmark main
+`
     This command tells `jj` to update the `main` branch on the `origin` remote to match the commit pointed to by your local `main` bookmark. This is the only push command you need for regular updates.
